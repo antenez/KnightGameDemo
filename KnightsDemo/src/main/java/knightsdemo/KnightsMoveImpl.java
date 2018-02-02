@@ -2,16 +2,21 @@ package knightsdemo;
 
 import knightsdemo.interfaces.KnightMove;
 
-public class KnightsMoveImpl  implements KnightMove{
+public class KnightsMoveImpl implements KnightMove {
+	private int moveColumn;
+	private int moveRow;
+
+	public KnightsMoveImpl(int moveColumn, int moveRow) {
+		this.moveColumn = moveColumn;
+		this.moveRow = moveRow;
+	}
 
 	public int getMoveColumn() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.moveColumn;
 	}
 
 	public int getMoveRow() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.moveRow;
 	}
 
 }

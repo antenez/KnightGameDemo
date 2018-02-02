@@ -1,0 +1,2 @@
+Example of running game is in test resources MainClassSample.java.
+Also check test cases for covered use cases.

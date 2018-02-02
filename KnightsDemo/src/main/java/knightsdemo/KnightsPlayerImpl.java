@@ -1,28 +1,53 @@
 package knightsdemo;
 
+import java.util.LinkedList;
+
 import knightsdemo.interfaces.KnightMove;
 import knightsdemo.interfaces.KnightsPlayer;
 
 public class KnightsPlayerImpl implements KnightsPlayer {
+	private LinkedList<KnightMove> historyOfMoves;
+	private String playerName;
 
-	public String getCurrentPlayerName() {
-		// TODO Auto-generated method stub
-		return null;
+	public KnightsPlayerImpl(String playerName) {
+		this.playerName = playerName;
+		historyOfMoves = new LinkedList<KnightMove>();
 	}
 
+	public String getCurrentPlayerName() {
+		return this.playerName;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see knightsdemo.interfaces.KnightsPlayer#getLastPlayedMove()
+	 */
 	public String getLastPlayedMove() {
-		// TODO Auto-generated method stub
-		return null;
+		if (!historyOfMoves.isEmpty()) {
+			return "(" + historyOfMoves.peek().getMoveColumn() + "-" + historyOfMoves.peek().getMoveRow() + ")";
+		} else {
+			return "";
+		}
+
 	}
 
 	public void printMoveHistory() {
-		// TODO Auto-generated method stub
-
+		for (KnightMove move : historyOfMoves) {
+			System.out.println(playerName + " move (" + move.getMoveColumn() + "-" + move.getMoveRow() + ")");
+		}
 	}
 
 	public KnightMove getLastMove() {
-		// TODO Auto-generated method stub
-		return null;
+		if (!historyOfMoves.isEmpty()) {
+			return historyOfMoves.peek();
+		} else {
+			return null;
+		}
+	}
+
+	public void addMove(KnightMove move) {
+		historyOfMoves.push(move);
 	}
 
 }
